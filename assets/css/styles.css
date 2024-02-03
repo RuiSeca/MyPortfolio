@@ -751,19 +751,19 @@ span{
 
 .card{
   width: 20em;
+  max-width: 100%;
   height: auto;
   background:  var(--container-color);
   border-radius: 2em;
   box-shadow: 0 0 2em rgba(0, 0, 0, .2);
-  padding:2rem 1em;
+  padding:1.5rem 1em;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 0 2em;margin-top: 5em;
-  margin-bottom: 10em;
-
+  margin: 0 1em;
+  margin-top: 3em;
+  margin-bottom: 5em;
 }
-
 .swiper-slide:not(.swiper-slide-active){
   filter: blur(1px);
 }
