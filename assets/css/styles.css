@@ -502,7 +502,9 @@ span{
   position: relative;
   z-index: 1;
 }
-
+.wrapper {
+  visibility: hidden;
+}
 .circle {
   width: 20px;
   height: 20px;

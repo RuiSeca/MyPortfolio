@@ -83,24 +83,35 @@ window.addEventListener('scroll', blurHeader)
 
 /*=============== EMAIL JS ===============*/
 const contactForm = document.getElementById('contact-form'),
-      contactMessage = document.getElementById('contact-message');
+      contactMessage = document.getElementById('contact-message'),
+      loaderWrapper = document.querySelector('.wrapper'); // Assuming you have a wrapper for the loading animation
 
 const sendEmail = (e) => {
     e.preventDefault();
-    
+
+    // Show loading animation
+    loaderWrapper.style.visibility = 'visible';
+
     emailjs.sendForm('service_pi4xy6m', 'template_641cbou', '#contact-form', 'pkfqcCbNu3mq8Ks-J')
     .then(() => {
+        // Hide loading animation on success
+        loaderWrapper.style.visibility = 'hidden';
+
         contactMessage.textContent = 'Message Sent Successfully 🟢';
         setTimeout(() => {
             contactMessage.textContent = '';
-        }, 5000);
+        }, 20000);
         contactForm.reset();
     })
     .catch(() => {
-        //Show service error Message
+        // Hide loading animation on error
+        loaderWrapper.style.visibility = 'hidden';
+
+        // Show service error Message
         contactMessage.textContent = 'Message not sent (error) 🔴';
     });
-}; 
+};
+
 
 contactForm.addEventListener('submit', sendEmail);
 
