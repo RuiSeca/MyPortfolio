@@ -702,6 +702,146 @@ span{
   }
 }
 
+/*===================PROJECTS =====================*/
+.project__container {
+  background-color: red;
+
+  row-gap: 2rem;
+  text-align: center;
+}
+.swiper{
+  width: 100%;
+  background: var(--body-color);
+  padding: 125px 9%;
+}
+
+.swiper h2{
+  font-size: 3rem;
+  color: #0faa0f;
+}
+
+.swiper h2 span{
+  color: #fff;
+  font-weight: 400;
+}
+
+.swiper-wrapper{
+  width: 100%;
+  height: 30em;
+  display: flex;
+  align-items: center;
+}
+
+.card{
+  width: 20em;
+  height: auto;
+  background:  var(--container-color);
+  border-radius: 2em;
+  box-shadow: 0 0 2em rgba(0, 0, 0, .2);
+  padding:2rem 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 2em;margin-top: 5em;
+  margin-bottom: 10em;
+
+}
+
+.swiper-slide:not(.swiper-slide-active){
+  filter: blur(1px);
+}
+
+.card__image{
+  width: 12em;
+  height: 12em;
+  border-radius: 50%;
+  border: 2px solid none;
+  padding: 3px;
+  margin-bottom: 2em;
+}
+
+.card__image img{
+  width: 100%;
+  height: 100%;
+  border-radius: 25%;
+  object-fit: cover;
+}
+
+.card__content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.card__text{
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 1em 0;
+}
+
+.card__btn{
+  background: red;
+  color: var(--title-color);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  padding: .5em;
+  border-radius: .5em;
+  margin-top: .5em;
+  cursor: pointer;
+}
+
+.swiper-scrollbar {
+  width: 100%;
+  height: 5px; /* Adjust the height of the scrollbar as needed */
+  background-color: #ccc; /* Background color of the scrollbar track */
+}
+
+.swiper-scrollbar-thumb {
+  background-color: #2ecc71; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Rounded corners for the scrollbar thumb */
+}
+
+
+ /*Example of a Media Query for Adjusting on Smaller Screens*/
+@media only screen and (max-width: 600px) {
+  .card{
+      width: 20em;
+      margin: 1em;
+  }
+  .swiper h2{
+      font-size: 1.2rem;
+  }
+}
+
+
+/* ScrollUp */
+#scrollTopButton{
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+  text-decoration: none;
+  border-radius: 50%;
+  display: block;
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  cursor: pointer;
+}
+
+#scrollTopButton::after {
+  content: "↑";
+  display: block;
+  color: #fff;
+  font-weight: 200;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 5px;
+}
+
 
 /*===================Services =====================*/
 .services__container{
@@ -811,152 +951,7 @@ span{
  margin-top: 2rem;
 }
 
-/*===================PROJECTS =====================*/
-.project__container {
-  background-color: red;
 
-  row-gap: 2rem;
-  text-align: center;
-}
-.swiper{
-  width: 100%;
-  background: var(--body-color);
-  padding: 125px 9%;
-}
-
-.swiper h2{
-  font-size: 3rem;
-  color: #0faa0f;
-}
-
-.swiper h2 span{
-  color: #fff;
-  font-weight: 400;
-}
-
-.swiper-wrapper{
-  width: 100%;
-  height: 30em;
-  display: flex;
-  align-items: center;
-}
-
-.card{
-  width: 20em;
-  height: auto;
-  background:  var(--container-color);
-  border-radius: 2em;
-  box-shadow: 0 0 2em rgba(0, 0, 0, .2);
-  padding:2rem 1em;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 0 2em;margin-top: 5em;
-  margin-bottom: 10em;
-
-}
-
-.swiper-slide:not(.swiper-slide-active){
-  filter: blur(1px);
-}
-
-.card__image{
-  width: 12em;
-  height: 12em;
-  border-radius: 50%;
-  border: 2px solid none;
-  padding: 3px;
-  margin-bottom: 2em;
-}
-
-.card__image img{
-  width: 100%;
-  height: 100%;
-  border-radius: 25%;
-  object-fit: cover;
-}
-
-.card__content{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-
-.card__text{
-  text-align: center;
-  font-size: 1.5rem;
-  margin: 1em 0;
-}
-
-.card__btn{
-  background: red;
-  color: var(--title-color);
-  font-size: 1rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  border: none;
-  padding: .5em;
-  border-radius: .5em;
-  margin-top: .5em;
-  cursor: pointer;
-}
-
-.swiper-scrollbar {
-  width: 100%;
-  height: 5px; /* Adjust the height of the scrollbar as needed */
-  background-color: #ccc; /* Background color of the scrollbar track */
-}
-
-.swiper-scrollbar-thumb {
-  background-color: #2ecc71; /* Color of the scrollbar thumb */
-  border-radius: 5px; /* Rounded corners for the scrollbar thumb */
-}
-
-
- /*Example of a Media Query for Adjusting on Smaller Screens*/
-@media only screen and (max-width: 600px) {
-  .card{
-      width: 20em;
-      margin: 1em;
-  }
-  .swiper h2{
-      font-size: 2rem;
-  }
-}
-
-
-/* ScrollUp */
-#scrollTopButton{
-  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
-  text-decoration: none;
-  border-radius: 50%;
-  display: block;
-  height: 50px;
-  width: 50px;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  cursor: pointer;
-}
-
-#scrollTopButton::after {
-  content: "↑";
-  display: block;
-  color: #fff;
-  font-weight: 200;
-  font-size: 30px;
-  text-align: center;
-  padding-top: 5px;
-}
-
-
-
-/* Add blur to header */
-
-
-/* Active link */
 
 
 

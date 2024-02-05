@@ -49,8 +49,12 @@ var swiper = new Swiper(".mySwiper", {
         el: ".swiper-scrollbar",
         dragSize: 150, // Adjust as needed
     },
+    
 });
-
+// Redirect to another website via card
+function redirectToAnotherWebsite(url) {
+    window.location.href = url;
+  }
 // Sync the scrollbar with Swiper's scroll position
 swiper.on("scroll", function () {
     var scrollbarThumb = document.querySelector(".swiper-scrollbar-thumb");
