@@ -206,8 +206,6 @@ new TypeIt("#auto-type", {
   }).go();
 /*=============== LIVE CHAT  ===============*/
 
-// javascript_file.js
-
 document.addEventListener("DOMContentLoaded", function() {
     // Paste Drift code snippet here
     // Ensure any variables or functions referenced in the Drift code are defined or available here
@@ -236,6 +234,11 @@ document.addEventListener("DOMContentLoaded", function() {
     drift.load('7ixnh64c3k5t');
 });
 
-
+/*=============== TOGGLE_DARK&WHITE_MODE  ===============*/
+function toggleMode() {
+    const body = document.body;
+    body.classList.toggle('white-mode');
+  }
+  
 
 
