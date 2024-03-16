@@ -26,25 +26,12 @@
 
     <title>My Portfolio - Rui Miguel</title>
   </head>
-  
+
   <body>
     <!--=============== Header ===============--> 
     <header class="header" id="header">
       <nav class="nav container">
         <a href="#" class="nav__logo"> Rui <span>Seca</span> </a>
-        
-        <label for="toggle-checkbox">
-          <input id="toggle-checkbox" class="toggle-checkbox" type="checkbox" onclick="toggleMode()">
-          <div class="toggle-slot">
-            <div class="moon-icon-wrapper">
-              <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
-            </div>
-            <div class="toggle-button"></div>
-            <div class="sun-icon-wrapper">
-              <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
-            </div>
-          </div>
-        </label>
         
         <div class="nav__links" id="nav-links">
           
@@ -69,7 +56,20 @@
               <a href="#contact" class="nav__link">Contact</a>
             </li>
           </ul>   
-               
+          <div class="nav__togg"> 
+            <label for="toggle-checkbox">
+              <input id="toggle-checkbox" class="toggle-checkbox" type="checkbox" onclick="toggleMode()">
+              <div class="toggle-slot">
+                <div class="moon-icon-wrapper">
+                  <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
+                </div>
+                <div class="toggle-button"></div>
+                <div class="sun-icon-wrapper">
+                  <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
+                </div>
+              </div>
+            </label>
+          </div>
           <div class="nav__close" id="nav-close">
             <i class="ri-close-line"></i>
           </div>
@@ -447,7 +447,7 @@
                   <p class="card__text">
                     Welcome to Weather Cast your sunny source for weather updates! From daily forecasts to weekend outlooks, 
                     we've got your back. Clear skies or stormy weather, 
-                    stay ahead with us and make every day a breeze!
+                    stay ahead with us andmaking every day a breeze!
                     
                   </p>
                   <button class="card__btn" onclick="redirectToAnotherWebsite('https://weather-cast-show.netlify.app/')">More</button>
@@ -654,6 +654,7 @@
       >
         Scroll to top
       </button>
+      
     </main>
 
     <!--==================== FOOTER ====================-->
@@ -714,5 +715,9 @@
 
     <!-- Custom JavaScript -->
     <script src="assets/js/main.js"></script>
+
+        <!-- Custom ChatBot -->
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
   </body>
 </html>
