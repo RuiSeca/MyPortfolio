@@ -152,6 +152,7 @@ svg {
 .main {
   overflow: hidden; /* For animation ScrollReveal */
 }
+
 /* White Mode Styles */
 .white-mode {
   --first-color: hsl(var(--hue), 70%, 50%); /* Change color variables as needed */
@@ -161,6 +162,7 @@ svg {
   --container-color: #ffffff;
   /* Add more styles for white mode as needed */
 }
+
 /*=============== HEADER & NAV ===============*/
 /* Default styles (Desktop) */
 .header {
@@ -337,6 +339,7 @@ svg {
   transition: color 0.4s;
 }
 
+
 .nav__link:hover {
   color: var(--first-color);
 }
@@ -345,6 +348,19 @@ svg {
   margin-bottom: 15px;
 }
 
+@media only screen and (min-width: 768px) {
+  .nav__togg {
+    display: block; /* Ensure the toggle button is always visible */
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 6px;
+  }
+
+  .nav__list{
+    margin: 70px;
+  }
+}
 
 /*=============== HOME ===============*/
 .home{
@@ -410,7 +426,7 @@ span{
 
 .home__description {
   margin-block: 1rem 1.5rem;
-  color: var(--text-color); /* Specify your text color here */
+  color: var(--first-color); /* Specify your text color here */
   margin-bottom: 20em;
 }
 
@@ -505,6 +521,7 @@ span{
   font-size: 16px;
   margin-left: 20px;
   margin-right: 20px;
+  color: var(--title-color)
 }
 
 .about__image{
@@ -607,6 +624,7 @@ span{
   animation: circle7124 .5s alternate infinite ease;
 }
 
+
 @keyframes circle7124 {
   0% {
     top: 60px;
@@ -687,7 +705,9 @@ span{
   position: relative;
   background-color:  hsla(0, 0%, 10%, .3);
 }
-
+.skills__box p {
+  color: var(--title-color);
+}
 .header__skills:after{
   content: '';
   position: absolute;
@@ -702,7 +722,6 @@ span{
 .skills__container{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -725,6 +744,10 @@ span{
   margin-bottom: 0.5rem;
 }
 
+.skills__name{
+  color: var(--title-color);
+  
+}
 .img {
   width: 90px;
   height: 90px;
@@ -806,6 +829,9 @@ span{
   padding: 125px 9%;
 }
 
+.swiper-wrapper p {
+  color: var(--title-color);
+}
 .swiper h2{
   font-size: 3rem;
   color: #0faa0f;
@@ -857,13 +883,14 @@ span{
   border-radius: 25%;
   object-fit: cover;
 }
-
+.services__card p {
+ color: var(--title-color);
+}
 .card__content{
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-
 
 .card__text{
   text-align: center;
@@ -933,6 +960,9 @@ span{
   padding-top: 5px;
 }
 
+/* styles.css */
+
+
 
 /*===================Services =====================*/
 .services__container{
@@ -982,7 +1012,7 @@ span{
   text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1090px) {
   .services__container {
     /* Adjust the number of columns and gap for mobile */
     grid-template-columns: 1fr; /* Single column for mobile */
