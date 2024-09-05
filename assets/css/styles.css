@@ -155,12 +155,86 @@ svg {
 
 /* White Mode Styles */
 .white-mode {
-  --first-color: hsl(var(--hue), 70%, 50%); /* Change color variables as needed */
-  --title-color: #000;
-  --text-color: #333;
-  --body-color: #f5f5f5;
-  --container-color: #ffffff;
-  /* Add more styles for white mode as needed */
+  --first-color: hsl(var(--hue), 70%, 45%); /* Slightly darker for better contrast */
+  --first-color-alt: hsl(var(--hue), 56%, 35%);
+  --title-color: #333333; /* Darker gray for titles */
+  --text-color: #555555; /* Medium gray for text */
+  --body-color: #f8f8f8; /* Light gray background */
+  --container-color: #ffffff; /* White container background */
+  
+  /* Additional adjustments */
+  --body-font: "Poppins", sans-serif;
+  --biggest-font-size: 2rem;
+  --bigger-font-size: 1.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+}
+
+/* Adjust specific elements for white mode */
+.white-mode .toggle-slot {
+  background-color: #e0e0e0; /* Light gray for toggle background */
+}
+
+.white-mode .toggle-button {
+  background-color: #ffffff;
+  box-shadow: inset 0px 0px 0px 0.75em var(--first-color);
+}
+
+.white-mode .sun-icon,
+.white-mode .moon-icon {
+  color: var(--first-color);
+}
+
+.white-mode .header {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.white-mode .nav__link:hover {
+  color: var(--first-color);
+}
+
+.white-mode .home {
+  background-color: var(--body-color);
+}
+
+.white-mode .button {
+  background-color: var(--first-color);
+  color: #ffffff;
+}
+
+.white-mode .button:hover {
+  box-shadow: 0 8px 24px hsla(var(--hue), 100%, 40%, .25);
+}
+
+.white-mode .about__blob path {
+  stroke: var(--first-color);
+}
+
+.white-mode .contact__input {
+  background-color: #f0f0f0; /* Light gray for input fields */
+  color: var(--text-color);
+  border: 1px solid #e0e0e0;
+}
+
+.white-mode .contact__input:focus {
+  border-color: var(--first-color);
+  box-shadow: 0 0 10px rgba(var(--hue), 70%, 45%, 0.2);
+}
+
+.white-mode .skills__box,
+.white-mode .card,
+.white-mode .services__card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.white-mode .footer {
+  background-color: #f0f0f0; /* Light gray footer background */
 }
 
 /*=============== HEADER & NAV ===============*/
@@ -559,6 +633,7 @@ span{
 
 /*===================Contact=====================*/
 
+
 .contact__container{
   padding-top: 1rem;
 }
@@ -578,7 +653,14 @@ span{
   border-radius: .5rem;
   background-color: var(--container-color);
   color: var(--title-color);
- 
+  border: 2px solid transparent;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact__input:focus {
+  border: 2px solid #ff0000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  outline: none;
 }
 
 .contac_input::placeholder{
@@ -826,15 +908,16 @@ span{
 .swiper{
   width: 100%;
   background: var(--body-color);
-  padding: 125px 9%;
+  padding: 60px 5%; /* Reduced padding */
 }
 
 .swiper-wrapper p {
   color: var(--title-color);
 }
 .swiper h2{
-  font-size: 3rem;
+  font-size: 2rem; /* Reduced font size */
   color: #0faa0f;
+  margin-bottom: 1rem; /* Added margin */
 }
 
 .swiper h2 span{
@@ -850,18 +933,18 @@ span{
 }
 
 .card{
-  width: 20em;
+  width: 16em; /* Reduced width */
   height: auto;
   background:  var(--container-color);
-  border-radius: 2em;
-  box-shadow: 0 0 2em rgba(0, 0, 0, .2);
-  padding:2rem 1em;
+  border-radius: 1.5em; /* Slightly reduced border-radius */
+  box-shadow: 0 0 1em rgba(0, 0, 0, .2);
+  padding: 1.5rem 1em; /* Reduced padding */
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 0 2em;margin-top: 5em;
-  margin-bottom: 10em;
-
+  margin: 0 1em; /* Reduced margin */
+  margin-top: 3em; /* Reduced top margin */
+  margin-bottom: 5em; /* Reduced bottom margin */
 }
 
 .swiper-slide:not(.swiper-slide-active){
@@ -869,12 +952,12 @@ span{
 }
 
 .card__image{
-  width: 12em;
-  height: 12em;
+  width: 10em; /* Reduced size */
+  height: 10em; /* Reduced size */
   border-radius: 50%;
   border: 2px solid none;
   padding: 3px;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em; /* Reduced margin */
 }
 
 .card__image img{
@@ -894,8 +977,8 @@ span{
 
 .card__text{
   text-align: center;
-  font-size: 1.2rem;
-  margin: 1em 0;
+  font-size: 1rem; /* Reduced font size */
+  margin: 0.8em 0; /* Reduced margin */
 }
 
 .card__btn{
@@ -924,13 +1007,29 @@ span{
 
 
  /*Example of a Media Query for Adjusting on Smaller Screens*/
-@media only screen and (max-width: 600px) {
-  .card{
-      width: 20em;
-      margin: 1em;
+@media only screen and (max-width: 768px) {
+  .swiper {
+    padding: 40px 3%; /* Further reduced padding for mobile */
   }
-  .swiper h2{
-      font-size: 1.2rem;
+
+  .swiper h2 {
+    font-size: 1.5rem; /* Further reduced font size for mobile */
+  }
+
+  .card {
+    width: 14em; /* Slightly smaller cards for mobile */
+    margin: 0.5em; /* Reduced margin */
+    margin-top: 2em;
+    margin-bottom: 3em;
+  }
+
+  .card__image {
+    width: 8em; /* Smaller image for mobile */
+    height: 8em;
+  }
+
+  .card__text {
+    font-size: 0.9rem; /* Smaller text for mobile */
   }
 }
 
