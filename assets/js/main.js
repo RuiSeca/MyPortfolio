@@ -69,11 +69,6 @@ swiper.on("scroll", function () {
 });
 
 
-
-//window.addEventListener('scroll', reveal);
-
-
-
 /*=============== ADD BLUR TO HEADER ===============*/
 const blurHeader = () =>{
     const header = document.getElementById('header')
@@ -121,9 +116,6 @@ const sendEmail = async (e) => {
     }
 };
 
-
-
-
 contactForm.addEventListener('submit', sendEmail);
 
 /*=============== SHOW SCROLL UP BUTTON ===============*/ 
@@ -133,7 +125,6 @@ function scrollToTop() {
         behavior: 'smooth'
     });
 }
-
 window.onscroll = function() {
     var button = document.getElementById("scrollTopButton");
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -142,50 +133,71 @@ window.onscroll = function() {
         button.style.display = "none";
     }
 };
-
-/*=============== SHOW type text Change===============*/ 
-
     
 /*=============== SHOW SCROLL UP ===============*/ 
 // Get the header element
-const header = document.querySelector("header");
-
-// Set the distance to scroll before hiding the header
+const scrollTopButton = document.getElementById("scrollTopButton");
 const scrollDistance = 100; // Adjust this value as needed
+let lastScrollY = window.scrollY; // Store the last scroll position
 
 // Function to handle scroll events
 function handleScroll() {
-    if (window.scrollY > scrollDistance) {
-        header.style.top = `-${header.offsetHeight}px`; // Hide the header
-    } else {
-        header.style.top = "0"; // Show the header
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > scrollDistance) {
+        // Scrolling down, show the scroll button with zoom-in effect
+        scrollTopButton.classList.add('scroll-show');
+        scrollTopButton.classList.remove('scroll-hide');
+    } else if (currentScrollY < lastScrollY) {
+        // Scrolling up, hide the scroll button with zoom-out effect
+        scrollTopButton.classList.add('scroll-hide');
+        scrollTopButton.classList.remove('scroll-show');
     }
+
+    lastScrollY = currentScrollY; // Update the last scroll position
 }
 
 // Attach the scroll event listener
 window.addEventListener("scroll", handleScroll);
 
 
-/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+
 
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
-    origin:'top',
     distance: '60px',
     duration: 2500,
     delay: 400,
-})
+    scale: 0.85, // Add scale for the zoom effect
+});
 
-sr.reveal('.section__title, .about__description')
-sr.reveal('.about__image', {origin:'bottom'})
+// Reveal for titles and descriptions with zoom
+sr.reveal('.section__title, .about__description', { scale: 0.85 });
 
+// Specific reveal for the image with origin bottom and zoom
+sr.reveal('.about__image', { origin: 'bottom', scale: 0.85 });
 
-sr.reveal('.header__skills, .skills__box, .skills__name, .skills__icon')
+// Skills with zoom effect and staggered delay
+sr.reveal('.header__skills, .skills__box, .skills__name, .skills__icon', {
+    scale: 0.85,
+    interval: 200,
+});
 
-sr.reveal('.services__card, .services__description')
+// Services section with zoom
+sr.reveal('.services__card, .services__description', {
+    duration: 2000,
+    distance: '80px',
+    scale: 0.85,
+});
 
-sr.reveal('.project__container')
+// Project container with zoom and different origin
+sr.reveal('.project__container', {
+    origin: 'left',
+    distance: '100px',
+    scale: 0.85,
+});
+
 
 /*=============== Typer ===============*/
 
@@ -204,8 +216,9 @@ new TypeIt("#auto-type", {
     cursor: false,
     
   }).go();
-/*=============== LIVE CHAT  ===============*/
 
+  
+/*=============== LIVE CHAT  ===============*/
 document.addEventListener("DOMContentLoaded", function() {
     // Paste Drift code snippet here
     // Ensure any variables or functions referenced in the Drift code are defined or available here
@@ -230,8 +243,25 @@ document.addEventListener("DOMContentLoaded", function() {
             };
         }
     }();
+    
     drift.SNIPPET_VERSION = '0.3.1';
+    
+    // Hide Drift button by default
+    drift.config({
+        showWelcomeMessage: false, // Optional: Set to false if you don't want to show the welcome message
+        enableWelcomeMessage: false, // Optional: Set to false if you don't want to enable the welcome message
+        showGeneratedMarkup: false // Hide the button initially
+    });
+    
     drift.load('7ixnh64c3k5t');
+    
+    // Show Drift button after home section is loaded
+    var homeSection = document.getElementById('home-section');
+    if (homeSection) {
+        homeSection.addEventListener('load', function() {
+            drift.showChat();
+        });
+    }
 });
 
 /*=============== TOGGLE_DARK&WHITE_MODE  ===============*/
@@ -240,5 +270,5 @@ function toggleMode() {
     body.classList.toggle('white-mode');
   }
   
-
-
+  
+  
