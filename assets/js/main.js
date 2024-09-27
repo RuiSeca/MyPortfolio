@@ -1,31 +1,38 @@
-/*=============== SHOW MENU===============*/
+/*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-links'),
       navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
+      navClose = document.getElementById('nav-close');
 
-/*=============== MENU SHOW===============*/
-if(navToggle){
+/*=============== MENU SHOW ===============*/
+if (navToggle) {
     navToggle.addEventListener('click', () => {
-        navMenu.classList.add('nav-links')
-     })
+        navMenu.classList.add('nav__open'); // Add class to show the menu
+    });
 }
 
-/*=============== MENU HIDDEN===============*/
-if(navClose){
+/*=============== MENU HIDDEN ===============*/
+if (navClose) {
     navClose.addEventListener('click', () => {
-        navMenu.classList.remove('nav-links')
-     }) 
+        navMenu.classList.remove('nav__open'); // Remove class to hide the menu
+    }); 
 }
 
 /*=============== REMOVE MENU MOBILE ===============*/
-const navLink = document.querySelectorAll('.nav__link')
+const navLink = document.querySelectorAll('.nav__link');
 
-const linksAction = () =>{
-     const navMenu = document.getElementById('nav-links')
-     //When we click on each nav__link, we remove the show-menu(nav-links)
-      navMenu.classList.remove('nav-links')
+const linksAction = () => {
+    navMenu.classList.remove('nav__open'); // Hide menu on link click
 }
-navLink.forEach(n => n.addEventListener('click', linksAction))
+
+// Add event listener to each nav link
+navLink.forEach(n => n.addEventListener('click', linksAction));
+
+/*=============== CLOSE MENU ON SCROLL ===============*/
+window.addEventListener('scroll', () => {
+    if (navMenu.classList.contains('nav__open')) {
+        navMenu.classList.remove('nav__open'); // Close the menu when scrolling
+    }
+});
 
 /*=============== CARD SWIPER ===============*/
  
