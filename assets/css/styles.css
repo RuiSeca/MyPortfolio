@@ -780,17 +780,22 @@ span{
 
 
 /*===================Skills =====================*/
-.header__skills{
+.header__skills {
   text-align: center;
   color: #fff;
   padding: 1rem;
   position: relative;
-  background-color:  hsla(0, 0%, 10%, .3);
+  background-color: hsla(0, 0%, 10%, 0.4); /* Increased transparency for a lighter effect */
+  border-radius: 10px; /* Added rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
+
 .skills__box p {
   color: var(--title-color);
+  margin: 0; /* Remove default margin for cleaner spacing */
 }
-.header__skills:after{
+
+.header__skills:after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -798,61 +803,72 @@ span{
   transform: translateX(-50%);
   height: 4px;
   width: 100px;
-  background-color: #2ecc71;
+  background-color: #2ecc71; /* Highlight color for emphasis */
+  border-radius: 2px; /* Soft edges for the line */
 }
 
-.skills__container{
+.skills__container {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
   justify-content: center;
   align-items: center;
   text-align: center;
-  grid-gap: 1rem;
-  padding: 1rem 80px;
-  font-size: 1.2rem;
-  background-color:  hsla(0, 0%, 10%, .3);
+  gap: 1rem; /* Use gap for spacing instead of grid-gap */
+  padding: 1rem 2rem; /* Reduced padding for cleaner appearance */
+  font-size: 1rem; /* Smaller font size for improved readability */
+  background-color: hsla(0, 0%, 10%, 0.4);
+  border-radius: 10px; /* Rounded corners for the container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
-.skills__box{
+
+.skills__box {
   padding: 1rem;
   color: #ddd;
   cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth hover effect */
 }
 
-.skills__title{
+.skills__box:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.skills__title {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
-.skills__name{
+.skills__name {
   color: var(--title-color);
-  
 }
+
 .img {
   width: 90px;
   height: 90px;
   position: relative;
-  border-radius: 45px;
+  border-radius: 50%; /* Fully round shape */
   background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* Clip overflowing parts */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }
 
-.img:after{
+.img:after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 50%;
-  height: 90px;
-  background: rgba(100, 100, 100 ,0.5);
-  border-radius: 45px 0 0 45px;
+  height: 100%; /* Adjust height to fill the image */
+  background: rgba(100, 100, 100, 0.5);
+  border-radius: 50%; /* Fully round for the overlay */
 }
 
-.skills__icon{
+.skills__icon {
   width: 50px;
   z-index: 2;
 }
@@ -860,44 +876,35 @@ span{
 /* Mobile-specific styles */
 @media (max-width: 768px) {
   .header__skills {
-    /* Center the text and adjust padding for mobile */
-    text-align: center;
     padding: 0.5rem;
   }
 
   .header__skills:after {
-    /* Adjust the width for mobile */
     width: 60px;
   }
 
   .skills__container {
-    /* Change grid to a single column for mobile */
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column layout for mobile */
     padding: 1rem;
   }
 
   .skills__box {
-    /* Adjust padding for mobile */
     padding: 0.5rem;
   }
-  
+
   .img {
-    /* Adjust width and height for mobile */
     width: 60px;
     height: 60px;
   }
 
   .img:after {
-    /* Adjust the height for mobile */
     height: 60px;
   }
 
   .skills__icon {
-    /* Adjust width for mobile */
     width: 40px;
   }
 }
-
 /*===================PROJECTS =====================*/
 .project__container {
   background-color: red;
