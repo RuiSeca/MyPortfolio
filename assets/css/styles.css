@@ -331,6 +331,7 @@ svg {
   transform: translate(2em, 2em) rotate(-15deg);
 }
 
+/*=============== NAV ===============*/
 .nav {
   height: var(--header-height);
   display: flex;
@@ -347,57 +348,70 @@ svg {
   color: var(--first-color);
 }
 
-
 .nav__toggle,
-.nav__close{
- display: none;
+.nav__close {
+  display: none;
 }
 
-@media screen  and (max-width: 768px) {
-  .nav__links{
+@media screen and (max-width: 768px) {
+  .nav__links {
     position: fixed;
     top: 0;
-    right: 100%;
+    right: -100%; /* Start hidden to the right */
     width: 75%;
     height: 100%;
     padding: 4.5rem 0 0 3rem;
     backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    transition: right .4s;
-    background-color: hsla(0, 0%, 10%, .3) 
+    transition: right 0.4s cubic-bezier(0.75, 0, 0.25, 1); /* Smooth transition with a custom curve */
+    background-color: rgba(30, 30, 30, 0.95); /* Dark background for depth */
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.7); /* Increased shadow for a more dynamic look */
+    border-left: 2px solid var(--first-color); /* Futuristic border effect */
+    color: var(--title-color); /* Change text color for contrast */
   }
   
   .nav__toggle,
-  .nav__close{
-   display: flex;
-   font-size: 1.25rem;
-   color: var(--title-color);
-   cursor: pointer;
+  .nav__close {
+    display: flex;
+    font-size: 1.25rem;
+    color: var(--title-color);
+    cursor: pointer;
   }
-  
+
   .nav__list {
-   display: flex;
-   flex-direction: column;
-   row-gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
   }
 
-  .nav__link{
+  .nav__link {
     font-weight: var(--font-medium);
-    transition: .4s;
-    color: var(--first-color)
-  }
-
-  .nav__link:hover{
+    transition: color 0.4s ease, transform 0.4s ease; /* Smooth color and transform transition */
     color: var(--first-color);
+    font-size: 1.2rem; /* Slightly larger font for better readability */
+    padding: 10px 0; /* Increased padding for touch targets */
   }
 
-  .nav__close{
+  .nav__link:hover {
+    color: #2ecc71; /* Change hover color for contrast */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); /* Add a glowing effect */
+  }
+
+  .nav__close {
     position: absolute;
     top: 1rem;
     right: 1.5rem;
+    font-size: 1.5rem; /* Increase size for visibility */
+    color: var(--first-color);
+    transition: transform 0.4s ease; /* Smooth transition */
   }
-  .nav-links {
-    right: 0;
+
+  .nav__close:hover {
+    transform: rotate(90deg); /* Rotate icon on hover for a playful effect */
+  }
+
+  .nav__open {
+    right: 0; /* Move the menu into view when open */
   }
 }
 
@@ -410,9 +424,8 @@ svg {
 .nav__link {
   color: var(--title-color);
   font-weight: var(--font-medium);
-  transition: color 0.4s;
+  transition: color 0.4s ease; /* Smooth color transition */
 }
-
 
 .nav__link:hover {
   color: var(--first-color);
@@ -431,7 +444,7 @@ svg {
     margin: 6px;
   }
 
-  .nav__list{
+  .nav__list {
     margin: 70px;
   }
 }
