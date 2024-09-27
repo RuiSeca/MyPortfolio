@@ -160,10 +160,6 @@ function handleScroll() {
 // Attach the scroll event listener
 window.addEventListener("scroll", handleScroll);
 
-
-
-
-
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
     distance: '60px',
@@ -181,7 +177,7 @@ sr.reveal('.about__image', { origin: 'bottom', scale: 0.85 });
 // Skills with zoom effect and staggered delay
 sr.reveal('.header__skills, .skills__box, .skills__name, .skills__icon', {
     scale: 0.85,
-    interval: 200,
+    interval: 75,
 });
 
 // Services section with zoom
