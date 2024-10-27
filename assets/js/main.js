@@ -272,6 +272,32 @@ function toggleMode() {
     const body = document.body;
     body.classList.toggle('white-mode');
   }
-  
+
+/*=============== DOWNLOAD  ===============*/
+
+  async function handleDownload() {
+    try {
+        // Start loading state
+        const checkbox = document.querySelector('.input');
+        checkbox.disabled = true;
+
+        const link = document.createElement('a');
+        link.href = '/assets/docs/CV-Rui_Seca.pdf';
+        link.download = 'CV-Rui_Seca.pdf';
+        
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+    } catch (error) {
+        console.error('Download failed:', error);
+        alert('Download failed. Please try again later.');
+        
+        // Reset button state if download fails
+        const checkbox = document.querySelector('.input');
+        checkbox.checked = false;
+        checkbox.disabled = false;
+    }
+}
   
   
