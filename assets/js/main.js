@@ -274,30 +274,29 @@ function toggleMode() {
   }
 
 /*=============== DOWNLOAD  ===============*/
-
-  async function handleDownload() {
+ async function handleDownload() {
     try {
-        // Start loading state
-        const checkbox = document.querySelector('.input');
-        checkbox.disabled = true;
-
-        const link = document.createElement('a');
-        link.href = '/assets/docs/CV-Rui_Seca.pdf';
-        link.download = 'CV-Rui_Seca.pdf';
-        
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
+      const label = document.getElementById('download-label');
+      
+      // Add active class to trigger animations
+      label.classList.add('active');
+  
+      // Trigger download
+      const link = document.createElement('a');
+      link.href = '/assets/docs/CV-Rui_Seca.pdf';
+      link.download = 'CV-Rui_Seca.pdf';
+      
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+  
+      // Remove active class after animation completes
+      setTimeout(() => label.classList.remove('active'), 4000); // Adjust time to match animations
+  
     } catch (error) {
-        console.error('Download failed:', error);
-        alert('Download failed. Please try again later.');
-        
-        // Reset button state if download fails
-        const checkbox = document.querySelector('.input');
-        checkbox.checked = false;
-        checkbox.disabled = false;
+      console.error('Download failed:', error);
+      alert('Download failed. Please try again later.');
     }
-}
+  }
   
   
