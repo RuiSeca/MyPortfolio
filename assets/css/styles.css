@@ -555,11 +555,17 @@ span{
   margin-top: 20px;
 }
 
+
 .label:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 24px hsla(var(--hue), 100%, 40%, .50);
-
+  box-shadow: 0 4px 24px hsla(var(--hue), 100%, 40%, 0.50);
 }
+
+.label.active {
+  width: 57px;
+  animation: installed 0.4s ease 3.5s forwards;
+}
+
 .label::before {
   content: "";
   position: absolute;
@@ -577,8 +583,8 @@ span{
   visibility: hidden;
 }
 
-.label .input {
-  display: none;
+.label.active::before {
+  animation: rotate 3s ease-in-out 0.4s forwards;
 }
 
 .label .title {
@@ -589,9 +595,11 @@ span{
   right: 18px;
   bottom: 14px;
   text-align: center;
+  opacity: 1; /* Initially visible */
+  visibility: visible;
 }
 
-.label .title:last-child {
+.label.active .title {
   opacity: 0;
   visibility: hidden;
 }
@@ -610,6 +618,26 @@ span{
   overflow: hidden;
 }
 
+.label.active .installer-btn {
+  animation: pulse 1s forwards, installerBtnDelete 0.2s ease 3.5s forwards;
+  rotate: 180deg;
+}
+
+.label .installer-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #3333a8;
+  width: 100%;
+  height: 0;
+  transition: all 0.4s ease;
+}
+
+.label.active .installer-btn::before {
+  animation: installing 3s ease-in-out forwards;
+}
+
 .label .installer-btn .icon {
   color: #fff;
   width: 30px;
@@ -618,6 +646,11 @@ span{
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.4s ease;
+}
+
+.label.active .installer-btn .icon {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .label .installer-btn .square {
@@ -634,54 +667,9 @@ span{
   transition: all 0.4s ease;
 }
 
-.label .installer-btn::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: #3333a8;
-  width: 100%;
-  height: 0;
-  transition: all 0.4s ease;
-}
-
-.label:has(.input:checked) {
-  width: 57px;
-  animation: installed 0.4s ease 3.5s forwards;
-}
-
-.label:has(.input:checked)::before {
-  animation: rotate 3s ease-in-out 0.4s forwards;
-}
-
-.label .input:checked + .installer-btn {
-  animation:
-    pulse 1s forwards,
-    installerBtnDelete 0.2s ease 3.5s forwards;
-  rotate: 180deg;
-}
-
-.label .input:checked + .installer-btn::before {
-  animation: installing 3s ease-in-out forwards;
-}
-
-.label .input:checked + .installer-btn .icon {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.label .input:checked ~ .installer-btn .square {
+.label.active .installer-btn .square {
   opacity: 1;
   visibility: visible;
-}
-
-.label .input:checked ~ .title {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.label .input:checked ~ .title:last-child {
-  animation: showInstalledMessage 0.4s ease 3.5s forwards;
 }
 
 @keyframes pulse {
@@ -736,14 +724,6 @@ span{
   100% {
     opacity: 0;
     visibility: hidden;
-  }
-}
-
-@keyframes showInstalledMessage {
-  100% {
-    opacity: 1;
-    visibility: visible;
-    right: 56px;
   }
 }
 
